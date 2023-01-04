@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  platereader:
+    build: .
+    command: python3 manage.py runserver --noreload 0.0.0.0:8003
+    tty: true
+    volumes:
+      - .:/code
+    ports:
+      - "8003:8003"
+    environment:
+      - ONUNBUFFERED=1
+      - DJANGO_SETTINGS_MODULE=PlateAPI.settings
